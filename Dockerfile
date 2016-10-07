@@ -32,6 +32,9 @@ RUN sed -i 's/\;date\.timezone\ \=/date\.timezone\ \=\ America\/Sao_Paulo/g' /et
 
 RUN sed -i 's/\;error_log\ \=\ php_errors\.log/error_log\ \=\ \/var\/www\/html\/logs\/php_errors\.log/g' /etc/php5/apache2/php.ini
 
+#PHP Short tag
+RUN sed -i 's/short_open_tag\ \=\ Off/short_open_tag\ \=\ On/g' /etc/php5/apache2/php.ini
+
 # Activate a2enmod
 RUN a2enmod rewrite
 RUN a2enmod expires
