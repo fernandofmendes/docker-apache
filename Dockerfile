@@ -2,7 +2,6 @@ FROM        debian
 MAINTAINER  Fernando Mendes "fernando.mendes@webca.com.br"
 
 ADD start.sh /start.sh
-RUN chmod 0755 /start.sh
 
 # Update the package repository
 RUN DEBIAN_FRONTEND=noninteractive apt-get update && \
@@ -85,4 +84,5 @@ ENV APACHE_DOCUMENTROOT /var/www/html
 
 EXPOSE 80
 
+RUN chmod 0755 /start.sh
 CMD ["bash", "start.sh"]
