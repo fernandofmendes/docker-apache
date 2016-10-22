@@ -81,6 +81,6 @@ ENV APACHE_DOCUMENTROOT /var/www/html
 #RUN export TERM=xterm
 
 EXPOSE 80
-ADD start.sh /start.sh
+ADD ./start.sh /start.sh
 RUN chmod 0755 /start.sh
 CMD ["bash", "start.sh"]
