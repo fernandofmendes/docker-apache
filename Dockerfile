@@ -57,30 +57,10 @@ ENV APACHE_SERVERNAME localhost
 ENV APACHE_SERVERALIAS docker.localhost
 ENV APACHE_DOCUMENTROOT /var/www/html
 
-# Install Postfix.
-#RUN echo postfix postfix/mailname string $(hostname).docker.lojavirtual.digital | debconf-set-selections
-#RUN echo postfix postfix/main_mailer_type string \'Internet Site\' | debconf-set-selections
-#RUN apt-get install -y postfix
-#RUN postconf -e mail_spool_directory="/var/spool/mail/"
-#RUN postconf -e mailbox_command=""
-
-# Add a local user to receive mail at someone@example.com, with a delivery directory
-# (for the Mailbox format).
-#RUN useradd -s /bin/bash someone
-#RUN mkdir /var/spool/mail/someone
-#RUN chown someone:mail /var/spool/mail/someone
-
-#ADD etc-aliases.txt /etc/aliases
-#RUN chown root:root /etc/aliases
-#RUN newaliases
-
-# Use syslog-ng to get Postfix logs (rsyslog uses upstart which does not seem
-# to run within Docker).
-#RUN apt-get install -q -y syslog-ng
-
 #RUN export TERM=xterm
 
 EXPOSE 80
 ADD ./start.sh /start.sh
 RUN chmod 0755 /start.sh
+
 CMD ["bash", "start.sh"]
