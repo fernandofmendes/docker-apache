@@ -1,4 +1,4 @@
-FROM        debian
+FROM        debian:8
 MAINTAINER  Fernando Mendes "fernando.mendes@webca.com.br"
 
 # Update the package repository
@@ -14,8 +14,6 @@ RUN export LANGUAGE=en_US.UTF-8 && \
 	export LC_ALL=en_US.UTF-8 && \
 	locale-gen en_US.UTF-8 && \
 	DEBIAN_FRONTEND=noninteractive dpkg-reconfigure locales
-
-RUN apt-get update;
 
 # Install Apache + PHP
 RUN apt-get install -y php5-cli php5 php5-mcrypt php5-curl php5-mysql php5-gd php-pear php-net-smtp php-net-socket php-mdb2-driver-mysql php-mdb2 php-mail-mimedecode php-mail-mime
